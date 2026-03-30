@@ -1,0 +1,152 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-popover-border: hsl(var(--popover-border));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-aarvasa-bg: #050a18;
+  --color-aarvasa-bg-end: #0a0f2c;
+  --color-aarvasa-primary: #0b1d3a;
+  --color-aarvasa-cyan: #00d1ff;
+  --color-aarvasa-cyan-hover: rgba(0, 209, 255, 0.3);
+  --color-aarvasa-cyan-alpha: rgba(0, 209, 255, 0.15);
+  --color-aarvasa-gold-start: #d4af37;
+  --color-aarvasa-gold-end: #f5d76e;
+  --color-aarvasa-muted: #a0a8c0;
+  --color-aarvasa-glass: rgba(255, 255, 255, 0.05);
+
+  --font-sans: var(--app-font-sans);
+  
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --background: 224 66% 6%; /* #050A18 */
+  --foreground: 0 0% 100%;
+  --border: 217 68% 14%; /* #0B1D3A */
+  --card: 224 66% 6%;
+  --card-foreground: 0 0% 100%;
+  --card-border: 191 100% 50%;
+  --popover: 224 66% 6%;
+  --popover-foreground: 0 0% 100%;
+  --popover-border: 217 68% 14%;
+  --primary: 217 68% 14%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 191 100% 50%; /* Cyan */
+  --secondary-foreground: 0 0% 100%;
+  --muted: 225 18% 69%; /* #A0A8C0 */
+  --muted-foreground: 225 18% 69%;
+  --accent: 46 65% 52%; /* Gold */
+  --accent-foreground: 0 0% 0%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --input: 217 68% 14%;
+  --ring: 191 100% 50%;
+  
+  --app-font-sans: 'Inter', sans-serif;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 224 66% 6%;
+  --foreground: 0 0% 100%;
+  --border: 217 68% 14%;
+  --card: 224 66% 6%;
+  --card-foreground: 0 0% 100%;
+  --card-border: 191 100% 50%;
+  --popover: 224 66% 6%;
+  --popover-foreground: 0 0% 100%;
+  --popover-border: 217 68% 14%;
+  --primary: 217 68% 14%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 191 100% 50%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 225 18% 69%;
+  --muted-foreground: 225 18% 69%;
+  --accent: 46 65% 52%;
+  --accent-foreground: 0 0% 0%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --input: 217 68% 14%;
+  --ring: 191 100% 50%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply font-sans antialiased bg-aarvasa-bg text-white;
+    background-image: linear-gradient(180deg, var(--color-aarvasa-bg) 0%, var(--color-aarvasa-bg-end) 100%);
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(90deg, #d4af37 0%, #f5d76e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .bg-gradient-gold {
+    background: linear-gradient(90deg, #d4af37 0%, #f5d76e 100%);
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 15px rgba(0, 209, 255, 0.4);
+  }
+
+  .glow-cyan-hover:hover {
+    box-shadow: 0 0 25px rgba(0, 209, 255, 0.6);
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+  }
+
+  .glow-gold-hover:hover {
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+  }
+  
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 209, 255, 0.15);
+  }
+}
