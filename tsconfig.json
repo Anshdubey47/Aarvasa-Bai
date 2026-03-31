@@ -1,16 +1,14 @@
 {
-"include": ["src/**/*"],
-"exclude": ["node_modules", "build", "dist", "**/*.test.ts"],
-"compilerOptions": {
-"noEmit": true,
-"jsx": "react-jsx",
-"lib": ["esnext", "dom", "dom.iterable"],
-"resolveJsonModule": true,
-"moduleResolution": "bundler",
-"types": ["node", "vite/client"],
-"baseUrl": ".",
-"paths": {
-"@/*": ["./src/*"]
-}
-}
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["ESNext", "DOM"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
+  },
+  "include": ["src"]
 }
